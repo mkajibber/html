@@ -2,6 +2,9 @@
 <html>
 <head>
 <style>
+    div.sisennys {
+        text-indent: 20px;
+    }    
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -20,14 +23,44 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-<h1>Esittely</h1>
-<h2>Kuka</h2>
-<p>Markus Kristian.
-</p>
+    <h1>Esittely</h1>
+    <img src="parta-ukko-kasvot.jpg" alt="Kasvokuva" style="width:200px;height:200px;">
+    <h2>Kuka</h2>
+    <div class="sisennys">
+        <p>Markus Kristian.</p>
+        <p>Full Stack dev</p>
+        <p>MSc.</p>
+    </div>
+    
 
-<h2>Voimassa olevat pätevyydet</h2>
 
-<table>
+<input type="button" onclick="patevyydetDisplay()" value="Katso pätevyydet">
+<br>
+<input type="button" onclick="opinnotDisplay()" value="Katso opinnot">
+<ul id="patevyydetLista" style="display: none">
+    <li>Tulityö</li>
+    <li>Työturvallisuus</li>
+    <li>Hätäensiapu 8h</li>
+    <li>Hygienia</li>
+    <li>Anniskelu</li>
+</ul>
+    
+
+<ul id="opinnotLista" style="display: none">
+    <li>Sähkö- ja automaatioalan perustutkinto
+        <ul>
+            <li>Perusosaaminen 45osp</li>
+            <li>Sähkö- ja energiatekniikka</li>
+            <li>Sähkö- ja automaatioasennukset</li>
+            <li>Sähköturvallisuus S2</li>
+            <li>Prosessiautomaatio</li>
+            <li>Kiinteistöjen automaatio- ja tietojärjestelmät</li>
+        </ul>
+    </li>
+    <li>Lounasruokien valmistus osatutkinto</li>
+    <li>Majoitus- ja ravitsemispalveluissa toimiminen osatutkinto</li>
+</ul>
+<table id="patevyydetTable" style="display: none">
 
   <tr>
     <th>Nimike</th>
@@ -66,9 +99,8 @@ tr:nth-child(even) {
 
 </table>
 
-<h2>Koulutus</h2>
 
-<table>
+<table id="opinnotTable" style="display: none">
 
   <tr>
     <th>Ajankohta</th>
@@ -99,5 +131,25 @@ tr:nth-child(even) {
 
 </table>
 
+<script>
+
+function patevyydetDisplay() {
+    if (document.getElementById('patevyydetTable').style.display == 'none') {
+        document.getElementById('patevyydetTable').style.display = 'block';
+    } else if (document.getElementById('patevyydetTable').style.display == 'block') {
+        document.getElementById('patevyydetTable').style.display = 'none';
+    }
+}
+    
+function opinnotDisplay() {
+    if (document.getElementById('opinnotTable').style.display == 'none') {
+        document.getElementById('opinnotTable').style.display = 'block';
+    } else if (document.getElementById('opinnotTable').style.display == 'block') {
+        document.getElementById('opinnotTable').style.display = 'none';
+    }
+}
+
+</script>
+    
 </body>
 </html>
