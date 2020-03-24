@@ -10,6 +10,7 @@
       
       body {
         background-color: #BD8BE8;
+        font-family: Helvetica, sans-serif;
       }
       
       .aikajana {
@@ -89,9 +90,23 @@
         border-color: transparent white transparent transparent;
       }
       
+      /* Lisää oikealle osoittavat nuolet vasemmanpuoleiseen konttiin */
+      .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid white;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+      }
+      
       /* Korjaa oikeanpuoleisen kontin ympyrän */
       .right::after {
-        left: 16px;
+        left: -16px;
       }
       
       /* Tosiasiallinen sisältö */
@@ -109,37 +124,37 @@
           left: 31px;
         }
       
-      /* Täydessä leveydessään olevat kontit */
-      .kontti {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-      }
+        /* Täydessä leveydessään olevat kontit */
+        .kontti {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
         
-      /* Varmistaa kaikkien nuolten osoittavan vasemmalle */
-      .kontti::before {
-        left: 60px;
-        border: medium solid white;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
-      }
+        /* Varmistaa kaikkien nuolten osoittavan vasemmalle */
+        .kontti::before {
+          left: 60px;
+          border: medium solid white;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent white transparent transparent;
+        }
         
-      /* Varmistaa kaikkien ympyröiden yhdenmukaisen sijoittelun */
-      .left::after, .right::after {
-        left: 15px;
-      }
+        /* Varmistaa kaikkien ympyröiden yhdenmukaisen sijoittelun */
+        .left::after, .right::after {
+          left: 15px;
+        }
       
-      /* Muuttaa kaikki oikeanpuoleiset kontit näyttäytymään vasemmanpuoleisina */
-      .right {
-        left: 0%;
+        /* Muuttaa kaikki oikeanpuoleiset kontit näyttäytymään vasemmanpuoleisina */
+        .right {
+          left: 0%;
+        }
       }
-        
     </style>
   </head>
   <body>
     
     <div class="aikajana">
-      <div class="kontti-left">
+      <div class="kontti left">
         <div class="sisalto">
           <h2>2020</h2>
           <p>Looremin ipsumia ohc turbo.</p>
