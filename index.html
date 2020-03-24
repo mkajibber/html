@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      
+      .yhteisetnapit {
+	position: relative;
+      }
+
+      .painonappi {
+	display: inline-block;
+	background-color: #46340B;
+	border: none;
+	color: white;
+	padding: 10px;
+	text-align: left;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+      }
+
+      .painonappi1 {
+	border-radius: 4px;
+	margin-top: 50px;
+      }
+
+      /* Kasvokuvaan ja liittyvän tekstin asettelua */
+      .sisennys20px {
+        text-indent: 20px;
+      }    
+      
+      .sisennys10px {
+        text-indent: 10px;
+      }   
+
+      .kasvokuva {
+        float: left;
+        width: 207px;
+	height: 207px;
+	border: 3px solid #73AD21;
+	padding: 0;
+      }
+
+      img {
+        float: left;
+      }
+
+      /* Tästä alkaa aikajanan tyylittely */
+
+      * {
+        box-sizing: border-box;
+      }  
+      
+      body {
+        background-color: #FF9F55;
+        font-family: Helvetica, sans-serif;
+      }
+      
+      .aikajanakokonaisuus {
+        position: absolute;
+	top: 400px;
+      }
+
+      .aikajana {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .aikajana::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: white;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+      
+      /* Kontit varsinaisen sisällön ympärillä */
+      .kontti {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+      
+      /* Ympyrät aikajanalla */
+      .kontti::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: white;
+        border: 4px solid #474e5d;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      
+      /* Sijoittaa kontin vasemmalle */
+      .left {
+        left: 0;
+      }
+      
+      /* Sijoittaa kontin oikealle */
+      .right {
+        left: 50%;
+      }
+      
+      /* Lisää oikealle osoittavat nuolet vasemmanpuoleiseen konttiin */
+      .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid white;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+      }
+      
+      /* Lisää vasemmalle osoittavat nuolet oikeanpuoleiseen konttiin */
+      .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+      
+      /* Lisää oikealle osoittavat nuolet vasemmanpuoleiseen konttiin */
+      .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid white;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+      }
+      
+      /* Korjaa oikeanpuoleisen kontin ympyrän */
+      .right::after {
+        left: -16px;
+      }
+      
+      /* Tosiasiallinen sisältö */
+      .sisalto {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 6px;
+      }
+      
+      /* Media queries - Responsive timeline on screens less than 600px wide */
+      @media screen and (max-width: 600px) {
+        /* Asettaa aikajanan vasemmalle */
+        .aikajana::after {
+          left: 31px;
+        }
+      
+        /* Täydessä leveydessään olevat kontit */
+        .kontti {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+        
+        /* Varmistaa kaikkien nuolten osoittavan vasemmalle */
+        .kontti::before {
+          left: 60px;
+          border: medium solid white;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent white transparent transparent;
+        }
+        
+        /* Varmistaa kaikkien ympyröiden yhdenmukaisen sijoittelun */
+        .left::after, .right::after {
+          left: 15px;
+        }
+      
+        /* Muuttaa kaikki oikeanpuoleiset kontit näyttäytymään vasemmanpuoleisina */
+        .right {
+          left: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+  
+    <p><img src="parta-ukko-kasvot.jpg" alt="Kasvokuva" style="width:150px;height:150px;margin-right:15px;">
+      <h2>Kuka</h2><p>Markus Kristian</p><p>Korkeakouluopiskelija</p><p>Sähkö- ja automaatioasentaja</p>
+    </p>
+    
+    
+    <div class="yhteisetnapit">
+      <button class="painonappi painonappi1">Aikajana</button>
+      <button class="painonappi painonappi1">Pätevyydet</button>
+      <button class="painonappi painonappi1">Työt</button>
+    </div>
+
+    <div class="aikajanakokonaisuus">
+    <div class="aikajana">
+      <div class="kontti right">
+        <div class="sisalto">
+          <h2>2020</h2>
+          <p>Stnan k0r[]na. Pitäis valmistua, hakea yhteishaussa ja kesäksi töiden löytyminen olisi suotavaa, koska hupimatkustelu voi olla pannassa.</p>
+        </div>
+      </div>
+      <div class="kontti left">
+        <div class="sisalto">
+          <h2>2019</h2>
+          <p>Vuoden aikana ja tähän mennessä Hyriassa iltaopiskelijat olivat opiskelleet Ahorannan Sähkötekniikan kannesta kanteen, jonka lisäksi asennettiin ja johdotettiin: 5 mittarikeskusta, 75 ryhmäjohtoa, 100 pistorasiaa, 20 valaisinta mm. kosteaan ja ulkotilaan, 5 paria lämpöpattereita, kiuas, useita liike- ja hämärätunnistimia, kourallinen erilaisia releitä. Lisäksi kaikkiin jännitteettömät sekä useimpiin jännitteelliset käyttöönottotarkastukset pöytäkirjoineen (Fluke 1662/Amprobe Telaris Pro).</p>
+        </div>
+      </div>
+      <div class="kontti right">
+        <div class="sisalto">
+          <h2>2018</h2>
+          <p>2kk kestäneen uravalmennuksen alkaessa keväällä olin saanut pitkän matematiikan 4 ensimmäistä kurssia ja lisäksi äidinkielen, maantiedon ensimmäiset kurssit. Kaikki kiitettäviä arvosanoja. Syksyllä aloitin sähkö- ja automaatioalan perusopinnot.</p>
+        </div>
+      </div>
+      <div class="kontti left">
+        <div class="sisalto">
+          <h2>2017</h2>
+          <p>Aloitin heti tammikuussa koulumatematiikan opiskelut kotona. Keväällä ilmoittauduin aikuislukioon. Tämä oli ensimmäinen kesä Helsingissä ja kaupunkifillareilla. Kilometrejä noin 500.</p>
+        </div>
+      </div>
+      <div class="kontti right">
+        <div class="sisalto">
+          <h2>2016</h2>
+          <p>Kokkikoulu ja työssäoppiminen. Muutama tuhat pelituntia takana, joten vaihtelua toi opiskelun uudet sivutuulet. CSGO rank: lem.</p>
+        </div>
+      </div>
+      <div class="kontti left">
+        <div class="sisalto">
+          <h2>2014</h2>
+          <p>Videopelejä ja livestriimejä aamusta iltaan. Oli alkanut henkinen valmistautuminen edessä koittavaan väistämättömään aikuistumiseen.</p>
+    </div>
+    </div>
+  </body>
+</html>
